@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alaska Air</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Alaska Air</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a class="page-scroll" href="#book">Book</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#download">Get App</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner" style=" margin-top: 264px;">  
+                <hr>
+                <p style="color: black;">Pack Up! Let's fly,Fly away with Alaska Air</p>
+                <a href="#book" class="btn btn-primary btn-xl page-scroll" id="searchtravel" style="">BOOK NOW</a>
+            </div>
+        </div>
+    </header>
+
+<section class="bg-primary" id="book" style="
+    padding: 50px;
+">
+        <div class="container">
+    
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Book your Travel</h2>
+                    <hr class="light">
+                    
+<span>From:</span><select id="from" style="
+    margin-left: 10px;
+    color: black;
+    margin-right: 15px;
+">
+  <option selected value="SEA">SEA</option>
+  <option value="LAX">LAX</option>
+  <option value="LAS">LAS</option>
+  <option value="PHX">PHX</option>
+</select><span>To:</span><select id="to" style="
+    color: black;
+    margin-left: 10px;
+    margin-right: 15px;
+    ">
+  <option value="SEA">SEA</option>
+  <option selected value="LAX">LAX</option>
+  <option value="LAS">LAS</option>
+  <option value="PHX">PHX</option>
+</select>
+                    <span>Date:</span><input type="date" id="date" style="
+    margin-left: 10px;
+    color: black;
+"> <a href="javascript:renderFlights();" class="page-scroll btn btn-default btn-xl sr-button" data-sr-id="6" style="margin-left: 15px;visibility: visible;-webkit-transform: translateY(0) scale(1);opacity: 1;transform: translateY(0) scale(1);opacity: 1;-webkit-transition: all 0.35s ease 0s, -webkit-transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;transition: all 0.35s ease 0s, transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;">Search</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div id="services" style="padding: 10px;display:none;" >
+    <div class="" style="display: inline-flex;margin-left: 500px;">
+    <h2 class="section-heading">Search Results</h2>
+</div>
+    <a href="#book" class="btn btn-primary btn-xl page-scroll" style="margin-top: 10px;margin-bottom: 10px;margin-left: 200px;">Modify Search</a>
+    <div id="flightContainer" style="padding: 10px;"> </div>
+</div>
+    <script id="flightTemplate" type="text/x-jQuery-tmpl">
+<!--         var data=[{"From":"SEA","To":"PHX","FlightNumber":1000,"Departs":"2017-07-17T18:00:00","Arrives":"2017-07-17T20:00:00","MainCabinPrice":100.00,"FirstClassPrice":200.00},{"From":"SEA","To":"PHX","FlightNumber":1001,"Departs":"2017-07-17T19:00:00","Arrives":"2017-07-17T21:00:00","MainCabinPrice":110.00,"FirstClassPrice":190.00},{"From":"SEA","To":"PHX","FlightNumber":1002,"Departs":"2017-07-17T16:00:00","Arrives":"2017-07-17T18:00:00","MainCabinPrice":99.00,"FirstClassPrice":175.00},{"From":"SEA","To":"PHX","FlightNumber":1003,"Departs":"2017-07-17T07:00:00","Arrives":"2017-07-17T09:00:00","MainCabinPrice":132.00,"FirstClassPrice":214.00}]; -->
+<table>
+<tr>
+    <td style="font-weight: bold;">From</td>
+    <td style="font-weight: bold;">To</td>
+    <td style="font-weight: bold;">Flight Number</td>
+    <td style="font-weight: bold;">Arrival<img id="sortarrtime" title="Sort in descending order" src="img/up.png" alt="Smiley face" height="22" width="22" style="margin-left: 15px;" onclick="sortTime('#sortarrtime'); "></td></td>
+    <td style="font-weight: bold;">Depature <img id="sortdeptime" title="Sort in descending order" src="img/up.png" alt="Smiley face" height="22" width="22" style="margin-left: 15px;" onclick="sortTime('#sortdeptime'); "></td>
+    <td style="font-weight: bold;">Main Cabin Fare<img id="sortmainfare" title="Sort in descending order" src="img/up.png" alt="Smiley face" height="22" width="22" style="margin-left: 15px;" onclick="sortFareUp('#sortmainfare'); ">
+    </td>
+    <td style="font-weight: bold;">First Class Fare<img id="sortfirstfare" title="Sort in descending order" src="img/up.png" alt="Smiley face" height="22" width="22" style="margin-left: 15px;" onclick="sortFareUp('#sortfirstfare'); ">
+    </td>
+    
+  </tr>
+  {{#each this}}
+  <tr>
+    <td>{{From}}</td>
+    <td>{{To}}</td>
+    <td>{{FlightNumber}}</td>
+    <td>{{Arrives}}</td>
+    <td>{{Departs}}</td>
+    <td><div>Main Cabin-{{MainCabinPrice}} $ <a href="javascript:bookFlights();" class="btn btn-primary  page-scroll" style="margin-top: 10px;margin-bottom: 10px;margin-left: 10px;">BOOK</a>
+    </div>
+    </td>
+    <td>
+    <div>First Class-{{FirstClassPrice}} $ <a href="javascript:bookFlights();" class="btn btn-primary  page-scroll" style="margin-top: 10px;margin-bottom: 10px;margin-left: 15px;">BOOK</a>
+    </div>
+    </td>
+    
+  </tr>
+  {{/each}}
+</table>
+    </script>
+
+    <aside class="bg-dark">
+        <div class="container text-center" id="download">
+            <div class="call-to-action">
+                <h2>Get our App now for amazing offers!</h2>
+                <a href="https://play.google.com/store/apps/details?id=com.alaskaairlines.android&hl=en" class="btn btn-default btn-xl sr-button" data-sr-id="7" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: all 0.35s ease 0s, -webkit-transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s; transition: all 0.35s ease 0s, transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s; ">Get App Now!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Have any Complaints/Clarifications, Just give us a call or send us an email and we will get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact" data-sr-id="9" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
+                    <p>1-800-252-7522 (1-800-ALASKAAIR)</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact" data-sr-id="10" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
+                    <p><a href="mailto:your-email@your-domain.com">feedback@alaskaair.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.2.1.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+     <script src="js/worker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+
+
+</body></html>
